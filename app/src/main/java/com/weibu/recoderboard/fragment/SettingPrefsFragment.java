@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.weibu.recoderboard.R;
 import com.weibu.recoderboard.entity.CarNumberMsg;
+import com.weibu.recoderboard.entity.RecoderMsg;
 import com.weibu.recoderboard.util.Constant;
 import org.greenrobot.eventbus.EventBus;
 
@@ -76,14 +77,12 @@ public class SettingPrefsFragment extends PreferenceFragment implements Preferen
     }
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        Log.i("xxxx","1111onPreferenceTreeClick preference:"+preference.getKey());
             return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
 
-        Log.i("xxxx","111onPreferenceChange preference:"+preference.getKey());
         if(newValue != null){
 
             if(Constant.prefs_key_car_number.equals(preference.getKey())){
@@ -99,6 +98,7 @@ public class SettingPrefsFragment extends PreferenceFragment implements Preferen
                     int i = Integer.parseInt(newValue.toString());
                     String[] array = getActivity().getResources().getStringArray(R.array.recoder_time);
                     listPreference.setSummary(array[i]);
+                    EventBus.getDefault().post(new RecoderMsg(newValue.toString()));
                     return true;
                 }
             }

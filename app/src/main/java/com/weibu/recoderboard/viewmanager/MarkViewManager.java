@@ -42,8 +42,7 @@ public class MarkViewManager implements IViewManager {
     public MarkViewManager initData() {
         SharedPreferences shp = PreferenceManager.getDefaultSharedPreferences(mainActivity);
         String car_number = shp.getString(Constant.prefs_key_car_number,"");
-        if(!TextUtils.isEmpty(car_number))
-        {
+        if(!TextUtils.isEmpty(car_number)) {
             tvCarNumber.setText("车牌号："+car_number);
         }else{
             hide();

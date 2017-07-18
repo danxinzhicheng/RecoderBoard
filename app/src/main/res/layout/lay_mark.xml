@@ -3,13 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <com.weibu.recoderboard.widget.AlwaysMarqueeTextView
         android:id="@+id/tv_location"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="位置: Nanjing X:88.15 Y:33.45"
         android:textColor="@android:color/white"
         android:textSize="18sp"
+        android:ellipsize="marquee"
+        android:focusable="true"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="10dp"
         android:singleLine="true"

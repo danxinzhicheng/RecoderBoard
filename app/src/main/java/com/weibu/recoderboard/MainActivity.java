@@ -1,12 +1,17 @@
 package com.weibu.recoderboard;
 
+import android.content.SharedPreferences;
 import android.os.Environment;
+import android.preference.PreferenceManager;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.SurfaceView;
 import com.weibu.recoderboard.fragment.SettingPrefsFragment;
 import com.weibu.recoderboard.logic.GdLocationManager;
 import com.weibu.recoderboard.logic.RecordRepeatManager;
+import com.weibu.recoderboard.util.Constant;
 import com.weibu.recoderboard.util.MediaUtils;
 import com.weibu.recoderboard.viewmanager.MarkViewManager;
 import com.weibu.recoderboard.viewmanager.RecoderViewManager;
@@ -26,7 +31,9 @@ public class MainActivity extends BaseActivity{
 //    private RecoderViewManager recoderViewManager;
     private SettingViewManager settingViewManager;
     private MarkViewManager markViewManager;
-    private long delayHide = 5*1000;
+    private static long delayHide = 5*1000;
+    private static long defaultRecoderDurion = 25*1000;
+
 
     @Override
     protected int getContentLayout() {
@@ -50,12 +57,37 @@ public class MainActivity extends BaseActivity{
         mediaUtils.setTargetDir(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC));
         mediaUtils.setTargetName(UUID.randomUUID() + ".mp4");
         mediaUtils.setSurfaceView(surfaceView);//设置surfaceView
-        RecordRepeatManager.getInstance(this).setRecordDurion(20*1000).setRecordInterval(500).startRecordAuto();
+
+        long durion = getReateRecoderDurion();
+        Log.i("xxx","durion:"+durion);
+        RecordRepeatManager.getInstance(this).setRecordDurion(durion).setRecordInterval(500).startRecordAuto();//开始循环录制
 //        recoderViewManager.initData().hideDelay(delay);//delay秒无操作消失
         settingViewManager.initData().hideDelay(delayHide);
         markViewManager.initData();//水印部分（车牌号，位置，时间。。。）
 
         GdLocationManager.getInstance(this).startLocation();
+
+    }
+
+    private long getReateRecoderDurion() {
+        SharedPreferences shp = PreferenceManager.getDefaultSharedPreferences(this);
+        String recoder_time = shp.getString(Constant.prefs_key_recoder_time, "");
+        if (TextUtils.isEmpty(recoder_time)) {
+            return defaultRecoderDurion;
+        } else {
+            int i = Integer.parseInt(recoder_time);
+            switch (i) {
+                case 0:
+                    return 1*60*1000;//1分钟
+                case 1:
+                    return 3*60*1000;//3分钟
+                case 2:
+                    return 5*60*1000;//5分钟
+
+            }
+            return defaultRecoderDurion;
+        }
+
 
     }
 

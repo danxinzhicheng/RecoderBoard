@@ -15,6 +15,7 @@ import org.greenrobot.eventbus.EventBus;
 
 /**
  * Created by blueberry on 2017/7/17.
+ * 高德地图，获取位置，速度
  */
 
 public class GdLocationManager {
