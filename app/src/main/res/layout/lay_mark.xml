@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="位置: Nanjing X:88.15 Y:33.45"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:singleLine="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"/>
+
+    <TextView
+        android:id="@+id/tv_speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="速度:40km/h"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:layout_marginLeft="20dp"
+        android:layout_alignBottom="@+id/tv_location"
+        android:layout_toRightOf="@+id/tv_location"/>
+
+    <TextView
+        android:id="@+id/tv_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="车牌号:苏A 12345"
+        android:layout_marginLeft="20dp"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:layout_alignBottom="@+id/tv_speed"
+        android:layout_toRightOf="@+id/tv_speed"/>
+
+    <TextView
+        android:id="@+id/tv_weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="天气: 雷阵雨 31℃ 西风 6级 "
+        android:layout_marginLeft="20dp"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:visibility="gone"
+        android:layout_alignTop="@+id/tv_recoder_time"
+        android:layout_toRightOf="@+id/tv_recoder_time"/>
+
+</merge>

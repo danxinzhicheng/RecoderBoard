@@ -1,0 +1,15 @@
+<resources>
+
+    <string-array name="recoder_time">
+        <item>1分钟</item>
+        <item>3分钟</item>
+        <item>5分钟</item>
+    </string-array>
+
+    <string-array name="recoder_time_value">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+</resources>

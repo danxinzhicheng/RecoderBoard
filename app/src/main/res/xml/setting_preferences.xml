@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <PreferenceCategory
+        android:key="wbsetting"
+        android:summary="信息设置"
+        android:title="信息设置" >
+
+        <ListPreference
+            android:entries="@array/recoder_time"
+            android:entryValues="@array/recoder_time_value"
+            android:key="recoder_time"
+            android:defaultValue="0"
+            android:summary="设置录制视频时长"
+            android:title="录制时间" />
+
+        <EditTextPreference
+            android:key="car_number"
+            android:summary="请输入车牌号"
+            android:title="车牌号" />
+
+    </PreferenceCategory>
+</PreferenceScreen>

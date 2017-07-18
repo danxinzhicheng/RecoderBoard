@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'key0'
+            keyPassword '123456'
+            storeFile file('C:/Users/user/Desktop/keystore.jks')
+            storePassword '123456'
+        }
+    }
+    compileSdkVersion 25
+    buildToolsVersion "26.0.0"
+    defaultConfig {
+        applicationId "com.weibu.recoderboard"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    testCompile 'junit:junit:4.12'
+    compile 'com.werb.permissionschecker:permissionschecker:0.0.1-beta2'
+    compile 'org.greenrobot:eventbus:3.0.0'
+
+    //高德地图
+    compile 'com.amap.api:3dmap:latest.integration'//3D地图
+    compile 'com.amap.api:location:latest.integration'//定位
+//    compile 'com.amap.api:navi-3dmap:latest.integration'//导航
+}

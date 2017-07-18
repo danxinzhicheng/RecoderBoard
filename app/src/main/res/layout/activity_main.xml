@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context="com.weibu.recoderboard.MainActivity">
+
+    <SurfaceView
+        android:id="@+id/sf_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!--<include layout="@layout/lay_recoder"/>-->
+    <include layout="@layout/lay_mark"/>
+    <include layout="@layout/lay_setting"/>
+
+</RelativeLayout>

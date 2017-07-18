@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/btn_recoder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/recoder" />
+
+    <TextView android:id="@+id/tv_recoder_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="01:03:34"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:layout_margin="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:drawableLeft="@drawable/recording"
+        android:drawablePadding="5dp"
+        android:visibility="invisible"/>
+</merge>
